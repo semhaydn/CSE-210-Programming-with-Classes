@@ -17,28 +17,40 @@ class Program
         int d = 60;
 
         string grade;
+        string symbol = "";
+
+        if (x % 10 >=7 )
+        {
+            symbol = "+";
+        }
+
+        else if (x % 10 < 3 )
+
+        {
+            symbol = "-";
+        }
 
         if (x >= a )
         {
-            grade = ("A");
+            grade = "A";
         }
         else if (x >= b)
         {
-            grade = ("B");
+            grade = "B";
         }
         else if (x >= c)
         {
-            grade = ("C");   
+            grade = "C";   
         }
         else if (x >= d)
         {
-            grade = ("D");
+            grade = "D";
         }
         else
         {
-            grade = ("F");
+            grade = "F";
         }
-        Console.WriteLine($"Your grade is {grade}");
+        Console.WriteLine($"Your grade is {grade}{symbol}");
 
     }
 }
