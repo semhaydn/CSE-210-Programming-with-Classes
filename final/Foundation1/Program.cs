@@ -1,62 +1,31 @@
 using System;
 using System.Collections.Generic;
 
-class Video
-{
-    // Attributes
-    private string title;
-    private string author;
-    private int length;
-    private List<Comment> comments;
-
-    // Constructor
-    public Video(string title, string author, int length)
-    {
-        this.title = title;
-        this.author = author;
-        this.length = length;
-        this.comments = new List<Comment>();
-    }
-
-    // Methods
-    public void AddComment(string commenter, string text)
-    {
-        Comment comment = new Comment(commenter, text);
-        comments.Add(comment);
-    }
-
-    public int GetNumComments()
-    {
-        return comments.Count;
-    }
-}
-
-class Comment
-{
-    // Attributes
-    private string commenter;
-    private string text;
-
-    // Constructor
-    public Comment(string commenter, string text)
-    {
-        this.commenter = commenter;
-        this.text = text;
-    }
-}
-
 class Program
 {
     static void Main()
     {
-        // Create a video
-        Video myVideo = new Video("Introduction to Programming", "John Doe", 120);
+        List<Video> videos = new List<Video>();
 
-        // Add comments
-        myVideo.AddComment("User1", "Great video!");
-        myVideo.AddComment("User2", "I learned a lot.");
+        // Creating videos and adding comments
+        Video video1 = new Video("Video 1", "Author 1", 120);
+        video1.AddComment(new Comment("User1", "Great video!"));
+        video1.AddComment(new Comment("User2", "Interesting content."));
+        videos.Add(video1);
 
-        // Display video information
-        Console.WriteLine($"Video: {myVideo.GetNumComments()} comments");
+        Video video2 = new Video("Video 2", "Author 2", 180);
+        video2.AddComment(new Comment("User3", "Loved it!"));
+        video2.AddComment(new Comment("User4", "Keep it up."));
+        videos.Add(video2);
+
+        Video video3 = new Video("Video 3", "Author 3", 150);
+        video3.AddComment(new Comment("User5", "Nice explanation."));
+        videos.Add(video3);
+
+        // Displaying video information
+        foreach (var video in videos)
+        {
+            video.DisplayVideoInfo();
+        }
     }
 }
